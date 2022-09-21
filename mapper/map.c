@@ -6,63 +6,13 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 01:30:09 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:37:01 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static int	is_player(char c)
-{
-	if (c == 'P')
-		return (1);
-	return (0);
-}
-
-static int	is_collectable(char c)
-{
-	if (c == 'C')
-		return (1);
-	return (0);
-}
-
-static int	is_exit(char c)
-{
-	if (c == 'E')
-		return (1);
-	return (0);
-}
-
-static int	is_ground(char c)
-{
-	if (c == '0')
-		return (1);
-	return (0);
-}
-
-static int	is_wall(char c)
-{
-	if (c == '1')
-		return (1);
-	return (0);
-}
-
-size_t	ft_matrix_width (char  **matrix)
-{
-	return (ft_strlen(matrix[0]));
-}
-
-size_t	ft_matrix_height (char  **matrix)
-{
-	int	i;
-
-	i = 0;
-	while (matrix[i])
-		i++;
-	return (i);
-}
-
-int	check_retangular(int width, int height)
+int	check_retangular (int width, int height)
 {
 	if (width == height)
 		return (0);
@@ -107,7 +57,6 @@ int	check_border_walls (char  **map, int width, int height)
 	return (1);
 }
 
-
 int	check_valid_components (char  **map)
 {
 	int	i;
@@ -129,8 +78,6 @@ int	check_valid_components (char  **map)
 	}
 	return (1);
 }
-
-
 
 void	check_map(char  *map)
 {
