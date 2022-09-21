@@ -1,0 +1,132 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/09/22 00:59:03 by kmatos-s         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <so_long.h>
+
+// static int	is_collectable(char c)
+// {
+// 	if (c == 'C')
+// 		return (1);
+// 	return (0);
+// }
+
+// static int	is_exit(char c)
+// {
+// 	if (c == 'E')
+// 		return (1);
+// 	return (0);
+// }
+
+// static int	is_ground(char c)
+// {
+// 	if (c == '0')
+// 		return (1);
+// 	return (0);
+// }
+
+static int	is_wall(char c)
+{
+	if (c == '1')
+		return (1);
+	return (0);
+}
+
+size_t	ft_matrix_width (char  **matrix)
+{
+	return (ft_strlen(matrix[0]));
+}
+
+size_t	ft_matrix_height (char  **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+		i++;
+	return (i);
+}
+
+int	check_retangular(int width, int height)
+{
+	if (width == height)
+		return (0);
+	return (1);
+}
+
+int	check_width (char  **map, size_t width)
+{
+	int	i;
+
+	i = -1;
+	while (map[++i])
+		if (width != ft_strlen(map[i]))
+			return (0);
+	return (1);
+}
+
+int	check_border_walls (char  **map, int width, int height)
+{
+	int	i;
+
+	i = 0;
+	while (is_wall(map[0][i]))
+		i++;
+	if (width != i)
+		return (0);
+	i = 0;
+	while (is_wall(map[height - 1][i]))
+		i++;
+	if (width != i)
+		return (0);
+	i = 0;
+	while (map[i] && is_wall(map[i][0]))
+		i++;
+	if (height != i)
+		return (0);
+	i = 0;
+	while (map[i] && is_wall(map[i][width - 1]))
+		i++;
+	if (height != i)
+		return (0);
+	return (1);
+}
+
+
+int	check_blocking_walls (char  **map, int width, int height)
+{
+	int	i;
+
+	i = 0;
+
+	return (1);
+}
+
+
+
+void	check_map(char  *map)
+{
+	char	**map_matrix;
+	size_t	width; 
+	size_t	height;
+
+	map_matrix = ft_split(map, '\n');
+	width = ft_matrix_width(map_matrix);
+	height = ft_matrix_height(map_matrix);
+	if (!check_width(map_matrix, width))
+		on_error("Error\nPlease insert a valid map, some size is wrong.\n");
+	if (!check_retangular(width, height))
+		on_error("Error\nPlease insert a valid map, the are is not retangular\n");
+	if (!check_border_walls(map_matrix, width, height))
+		on_error("Error\nPlease insert a valid map, some wall is wrong.\n");
+	if (!check_blocking_walls(map_matrix, width, height))
+		on_error("Error\nPlease insert a valid map, some wall is blocking the way\n");
+}
