@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 01:27:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:41:00 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	initial_check(int argc, char **argv)
 		return (on_error("Please insert a valid argument\n"));
 }
 
-char*	read_file(int	fd)
+char	*read_file(int fd)
 {
 	char	*accumulator;
 	char	*current_line;
@@ -40,28 +40,22 @@ char*	read_file(int	fd)
 	return (accumulator);
 }
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		fd;
-
+	char	*map;
 
 	ft_printf("\n");
 	logg("Initializing...\n");
 	initial_check(argc, argv);
-
 	fd = open(TEMPORARY, O_RDONLY);
 	if (fd < 0)
 		on_error("Error:\nThe map file couldn't be opened\n");
-
-	char *map = read_file(fd);
-
+	map = read_file(fd);
 	check_map(map);
-
 	if (map && *map)
 		free(map);
 	close(fd);
-
 	ft_printf("\n");
 	logg("Closing...\n");
 	return (0);

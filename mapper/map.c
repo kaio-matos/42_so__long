@@ -6,20 +6,20 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 01:37:01 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:46:29 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	check_retangular (int width, int height)
+int	check_retangular(int width, int height)
 {
 	if (width == height)
 		return (0);
 	return (1);
 }
 
-int	check_width (char  **map, size_t width)
+int	check_width(char **map, size_t width)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ int	check_width (char  **map, size_t width)
 	return (1);
 }
 
-int	check_border_walls (char  **map, int width, int height)
+int	check_border_walls(char **map, int width, int height)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ int	check_border_walls (char  **map, int width, int height)
 	return (1);
 }
 
-int	check_valid_components (char  **map)
+int	check_valid_components(char **map)
 {
 	int	i;
 	int	j;
@@ -68,9 +68,9 @@ int	check_valid_components (char  **map)
 		j = 0;
 		while (map[i][j])
 		{
-
-			if (!is_collectable(map[i][j]) && !is_exit(map[i][j]) && !is_ground(map[i][j]) &&
-				!is_wall(map[i][j]) && !is_player(map[i][j]))
+			if (!is_collectable(map[i][j]) && !is_exit(map[i][j]) &&
+				!is_ground(map[i][j]) && !is_wall(map[i][j]) &&
+				!is_player(map[i][j]))
 				return (0);
 			j++;
 		}
@@ -79,10 +79,10 @@ int	check_valid_components (char  **map)
 	return (1);
 }
 
-void	check_map(char  *map)
+void	check_map(char *map)
 {
 	char	**map_matrix;
-	size_t	width; 
+	size_t	width;
 	size_t	height;
 
 	map_matrix = ft_split(map, '\n');
