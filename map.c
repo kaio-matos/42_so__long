@@ -6,32 +6,39 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 00:59:03 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:30:09 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-// static int	is_collectable(char c)
-// {
-// 	if (c == 'C')
-// 		return (1);
-// 	return (0);
-// }
+static int	is_player(char c)
+{
+	if (c == 'P')
+		return (1);
+	return (0);
+}
 
-// static int	is_exit(char c)
-// {
-// 	if (c == 'E')
-// 		return (1);
-// 	return (0);
-// }
+static int	is_collectable(char c)
+{
+	if (c == 'C')
+		return (1);
+	return (0);
+}
 
-// static int	is_ground(char c)
-// {
-// 	if (c == '0')
-// 		return (1);
-// 	return (0);
-// }
+static int	is_exit(char c)
+{
+	if (c == 'E')
+		return (1);
+	return (0);
+}
+
+static int	is_ground(char c)
+{
+	if (c == '0')
+		return (1);
+	return (0);
+}
 
 static int	is_wall(char c)
 {
@@ -101,12 +108,25 @@ int	check_border_walls (char  **map, int width, int height)
 }
 
 
-int	check_blocking_walls (char  **map, int width, int height)
+int	check_valid_components (char  **map)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
 
+			if (!is_collectable(map[i][j]) && !is_exit(map[i][j]) && !is_ground(map[i][j]) &&
+				!is_wall(map[i][j]) && !is_player(map[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
 	return (1);
 }
 
@@ -127,6 +147,6 @@ void	check_map(char  *map)
 		on_error("Error\nPlease insert a valid map, the are is not retangular\n");
 	if (!check_border_walls(map_matrix, width, height))
 		on_error("Error\nPlease insert a valid map, some wall is wrong.\n");
-	if (!check_blocking_walls(map_matrix, width, height))
-		on_error("Error\nPlease insert a valid map, some wall is blocking the way\n");
+	if (!check_valid_components(map_matrix))
+		on_error("Error\nPlease insert a valid map, something is missing\n");
 }

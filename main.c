@@ -6,12 +6,12 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/21 02:55:55 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:27:10 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-#define TEMPORARY "./maps/quadratic.ber"
+#define TEMPORARY "./maps/simple.ber"
 
 void	initial_check(int argc, char **argv)
 {
