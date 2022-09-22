@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 01:41:00 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 02:01:43 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	initial_check(int argc, char **argv)
 {
 	if (argc <= 1)
 		return (on_error("Please insert more arguments\n"));
-	if (argv[1] == NULL)
+	if (!argv[1])
 		return (on_error("Please insert a valid argument\n"));
+	if (!is_valid_map_extension(argv[1]))
+		return (on_error("Please insert a valid map extension\n"));
 }
 
 char	*read_file(int fd)
