@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 02:42:19 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 02:55:17 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,11 @@ int	check_components_number(char **map)
 	return (1);
 }
 
-void	check_map(char *map)
+void	check_map(char **map_matrix)
 {
-	char	**map_matrix;
 	size_t	width;
 	size_t	height;
 
-	map_matrix = ft_split(map, '\n');
 	width = ft_matrix_width(map_matrix);
 	height = ft_matrix_height(map_matrix);
 	if (!check_width(map_matrix, width))
