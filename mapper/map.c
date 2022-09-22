@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 02:19:44 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 02:42:19 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,38 @@ int	check_valid_components(char **map)
 	return (1);
 }
 
+int	check_components_number(char **map)
+{
+	int	i;
+	int	j;
+	int	players;
+	int	exits;
+	int	collectables;
+
+	i = 0;
+	players = 0;
+	exits = 0;
+	collectables = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (is_player(map[i][j]))
+				players++;
+			if (is_exit(map[i][j]))
+				exits++;
+			if (is_collectable(map[i][j]))
+				collectables++;
+			j++;
+		}
+		i++;
+	}
+	if (players != 1 || exits != 1 || collectables <= 0)
+		return (0);
+	return (1);
+}
+
 void	check_map(char *map)
 {
 	char	**map_matrix;
@@ -96,4 +128,6 @@ void	check_map(char *map)
 		on_error("Please insert a valid map, some wall is wrong.\n");
 	if (!check_valid_components(map_matrix))
 		on_error("Please insert a valid map, something is missing\n");
+	if (!check_components_number(map_matrix))
+		on_error("Please insert a valid map, the map don't fit into the rules\n");
 }
