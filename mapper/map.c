@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 01:46:29 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 02:19:44 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ void	check_map(char *map)
 	width = ft_matrix_width(map_matrix);
 	height = ft_matrix_height(map_matrix);
 	if (!check_width(map_matrix, width))
-		on_error("Error\nPlease insert a valid map, some size is wrong.\n");
+		on_error("Please insert a valid map, some size is wrong.\n");
 	if (!check_retangular(width, height))
-		on_error("Error\nPlease insert a valid map, the are is not retangular\n");
+		on_error("Please insert a valid map, the are is not retangular\n");
 	if (!check_border_walls(map_matrix, width, height))
-		on_error("Error\nPlease insert a valid map, some wall is wrong.\n");
+		on_error("Please insert a valid map, some wall is wrong.\n");
 	if (!check_valid_components(map_matrix))
-		on_error("Error\nPlease insert a valid map, something is missing\n");
+		on_error("Please insert a valid map, something is missing\n");
 }

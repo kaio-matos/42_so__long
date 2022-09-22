@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 02:01:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 02:20:51 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv)
 	initial_check(argc, argv);
 	fd = open(TEMPORARY, O_RDONLY);
 	if (fd < 0)
-		on_error("Error:\nThe map file couldn't be opened\n");
+		on_error("The map file couldn't be opened\n");
 	map = read_file(fd);
 	check_map(map);
 	if (map && *map)
