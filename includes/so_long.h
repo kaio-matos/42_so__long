@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:24:22 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/24 01:30:39 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void		*ft_palloc(size_t size);
 
 void		ft_free_matrix(char **matrix);
 char		**ft_psplit(const char *s, char c);
+char		*ft_read_file(int fd);
+char		*ft_pread_file(int fd);
 
 #endif
