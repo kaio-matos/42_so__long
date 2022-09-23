@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/22 02:56:13 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/23 02:52:09 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ int			check_width(char **map, size_t width);
 int			check_border_walls(char **map, int width, int height);
 int			check_valid_components(char **map);
 void		check_map(char **map_matrix);
+
+/******************************************************************************\
+* MEMORY																       *
+\******************************************************************************/
+
+enum memory_actions
+{
+	FREE,
+	PUSH
+};
+
+void 		memory(enum memory_actions action, void *payload);
+void		*ft_salloc(size_t size);
+void		*ft_palloc(size_t size);
 
 /******************************************************************************\
 * UTILS																	       *

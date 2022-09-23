@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.c                                              :+:      :+:    :+:   */
+/*   memory_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 02:58:36 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/23 02:53:12 by kmatos-s         ###   ########.fr       */
+/*   Created: 2022/09/23 02:51:25 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/09/23 02:51:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	logg(char	*message)
+void	*ft_salloc(size_t size)
 {
-	ft_printf(SHELL_RC);
-	ft_printf("[so_long] %s", message);
-	ft_printf(SHELL_RC);
+	void	*mem;
+
+	mem = malloc(size);
+	if (!mem && size > 0)
+		on_error("MEMORY ALLOCATION ERROR");
+	return (mem);
 }
 
-void	on_error(char	*error_message)
+void	*ft_palloc(size_t size)
 {
-	ft_printf(SHELL_R);
-	ft_printf("[so_long] Error:\n%s", error_message);
-	ft_printf(SHELL_RC);
-	memory(FREE, NULL);
-	exit(1);
-}
+	void	*mem;
 
-void	on_success(char	*success_message)
-{
-	ft_printf(SHELL_G);
-	ft_printf("[so_long] %s", success_message);
-	ft_printf(SHELL_RC);
+	mem = ft_salloc(size);
+	memory(PUSH, mem);
+	return (mem);
 }
