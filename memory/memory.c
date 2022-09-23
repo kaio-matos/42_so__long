@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:06:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/23 02:51:37 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/24 01:18:40 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_free_memory(void **memory, int memory_nodes)
 	i = 0;
 	if (!memory)
 		return ;
-	while (memory[i] && i < memory_nodes)
+	while (i < memory_nodes && memory[i] != NULL)
 	{
 		free(memory[i]);
 		i++;
@@ -32,10 +32,10 @@ void	*ft_push_memory(void **memory, void *payload, int memory_nodes)
 	void	*temporary_pointer;
 
 	temporary_pointer = memory;
-	memory = ft_salloc(memory_nodes * sizeof(payload));
+	memory = ft_salloc(memory_nodes * sizeof(void *));
 	if (temporary_pointer)
 	{
-		ft_memcpy(memory, temporary_pointer, memory_nodes * sizeof(payload));
+		ft_memcpy(memory, temporary_pointer, (memory_nodes - 1) * sizeof(void *));
 		free(temporary_pointer);
 	}
 	memory[memory_nodes - 1] = payload;
