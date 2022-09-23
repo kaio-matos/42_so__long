@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:30:39 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/24 01:54:14 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,20 @@ int			check_retangular(int width, int height);
 int			check_width(char **map, size_t width);
 int			check_border_walls(char **map, int width, int height);
 int			check_valid_components(char **map);
+int			check_components_number(char **map);
 void		check_map(char **map_matrix);
 
 /******************************************************************************\
 * MEMORY																       *
 \******************************************************************************/
 
-enum memory_actions
+enum		e_memory_actions
 {
 	FREE,
 	PUSH
 };
 
-void 		memory(enum memory_actions action, void *payload);
+void		memory(enum e_memory_actions action, void *payload);
 void		*ft_salloc(size_t size);
 void		*ft_palloc(size_t size);
 
