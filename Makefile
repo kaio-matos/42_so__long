@@ -6,7 +6,7 @@ NAME = so_long
 SRCS = main.c\
 	mapper/map.c mapper/map_utils.c mapper/is_component.c\
 	memory/memory.c memory/memory_utils.c\
-	utils/ft_free_matrix.c\
+	utils/ft_free_matrix.c utils/ft_psplit.c\
 	logger/log.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
@@ -23,6 +23,7 @@ $(NAME): $(OBJS)
 debug:
 	make all -C ./libft
 	$(CC) $(CCF_DEBUG) $(SRCS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
+	chmod 777 $(NAME)
 
 clean:
 	$(RM) $(OBJS)
