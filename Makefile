@@ -3,11 +3,12 @@ CCF_INCLUDES = -I ./includes -I ./libft
 CCF_STRICT = -Wall -Wextra -Werror
 CCF_DEBUG = -Wall -Wextra -Werror -g
 NAME = so_long
-SRCS = main.c\
+files = main.c\
 	mapper/map.c mapper/map_utils.c mapper/is_component.c mapper/checkers.c\
 	memory/memory.c memory/memory_utils.c\
 	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c\
 	logger/log.c
+SRCS = $(addprefix src/,$(files))
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
 
