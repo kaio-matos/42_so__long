@@ -6,12 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:30:36 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/24 02:19:01 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-#define TEMPORARY "./maps/complex.ber"
 
 void	initial_check(int argc, char **argv)
 {
@@ -30,7 +29,7 @@ int	main(int argc, char **argv)
 	char	**map_matrix;
 
 	initial_check(argc, argv);
-	fd = open(TEMPORARY, O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		on_error("The map file couldn't be opened\n");
 	map = ft_pread_file(fd);
