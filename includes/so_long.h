@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 02:30:07 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/27 01:21:49 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,19 @@ void		on_success(char *success_message);
 * MAPPER																	   *
 \******************************************************************************/
 
+typedef struct s_position
+{
+	int		x;
+	int		y;
+}	t_position;
+
+typedef struct s_map
+{
+	size_t	width;
+	size_t	height;
+	char	**matrix;
+}	t_map;
+
 int			is_player(char c);
 int			is_collectable(char c);
 int			is_exit(char c);
@@ -41,7 +54,27 @@ int			check_width(char **map, size_t width);
 int			check_border_walls(char **map, int width, int height);
 int			check_valid_components(char **map);
 int			check_components_number(char **map);
-void		check_map(char **map_matrix);
+void		check_map(t_map map);
+
+/******************************************************************************\
+* SO_LONG																	   *
+\******************************************************************************/
+
+void		so_long(t_map map);
+
+/******************************************************************************\
+* WINDOW																	   *
+\******************************************************************************/
+
+typedef struct s_window
+{
+	void	*window;
+	void	*init;
+	int		width;
+	int		height;
+}	t_window;
+
+t_window	init_window(int width, int height);
 
 /******************************************************************************\
 * MEMORY																       *

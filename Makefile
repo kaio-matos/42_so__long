@@ -1,10 +1,13 @@
 CC = cc
 CCF_INCLUDES = -I ./includes -I ./libft
+MLX_FLAGS = -lmlx  -lXext -lX11 -lm
 CCF_STRICT = -Wall -Wextra -Werror
 CCF_DEBUG = -Wall -Wextra -Werror -g
 NAME = so_long
 files = main.c\
+	app/so_long.c\
 	mapper/map.c mapper/map_utils.c mapper/is_component.c mapper/checkers.c\
+	window/init_window.c\
 	memory/memory.c memory/memory_utils.c\
 	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c\
 	logger/log.c
@@ -16,14 +19,14 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make all -C ./libft
-	$(CC) $(OBJS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
+	$(CC) $(OBJS) $(MLX_FLAGS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
 
 %.o : %.c
 	$(CC) $(CCF_STRICT) $(CCF_INCLUDES) -c $< -o $@
 
 debug:
 	make all -C ./libft
-	$(CC) $(CCF_DEBUG) $(SRCS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
+	$(CC) $(CCF_DEBUG) $(MLX_FLAGS) $(SRCS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
 	chmod 777 $(NAME)
 
 clean:
