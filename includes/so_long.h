@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 00:30:56 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:43:23 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 # include <fcntl.h>
 # include <mlx.h>
 # define PIXELS 32
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
 
 /******************************************************************************\
-* LOGGER																	   *
-\******************************************************************************/
-
-void		logg(char *message);
-void		on_error(char *error_message);
-void		on_success(char *success_message);
-
-/******************************************************************************\
-* MAPPER																	   *
+* TYPES 																	   *
 \******************************************************************************/
 
 typedef struct s_position
@@ -41,6 +42,44 @@ typedef struct s_map
 	size_t	height;
 	char	**matrix;
 }	t_map;
+
+typedef struct s_window
+{
+	void	*window;
+	void	*init;
+	int		width;
+	int		height;
+}	t_window;
+
+enum		e_memory_actions
+{
+	FREE,
+	PUSH
+};
+
+/******************************************************************************\
+* SO_LONG																	   *
+\******************************************************************************/
+
+void		so_long(t_map map);
+
+/******************************************************************************\
+* EVENTS																	   *
+\******************************************************************************/
+
+int			key_press(int key, t_window *window);
+
+/******************************************************************************\
+* LOGGER																	   *
+\******************************************************************************/
+
+void		logg(char *message);
+void		on_error(char *error_message);
+void		on_success(char *success_message);
+
+/******************************************************************************\
+* MAPPER																	   *
+\******************************************************************************/
 
 int			is_player(char c);
 int			is_collectable(char c);
@@ -58,39 +97,8 @@ int			check_components_number(char **map);
 void		check_map(t_map map);
 
 /******************************************************************************\
-* SO_LONG																	   *
-\******************************************************************************/
-
-void		so_long(t_map map);
-
-/******************************************************************************\
-* WINDOW																	   *
-\******************************************************************************/
-
-typedef struct s_window
-{
-	void	*window;
-	void	*init;
-	int		width;
-	int		height;
-}	t_window;
-
-void		init_window(int width, int height);
-void		*get_image(char *filename);
-void		put_image(char *img_path, t_position position);
-void		load_images(char **map);
-int			render(t_map *map);
-t_window	*w(void);
-
-/******************************************************************************\
 * MEMORY																       *
 \******************************************************************************/
-
-enum		e_memory_actions
-{
-	FREE,
-	PUSH
-};
 
 void		memory(enum e_memory_actions action, void *payload);
 void		*ft_salloc(size_t size);
@@ -105,5 +113,17 @@ char		**ft_psplit(const char *s, char c);
 char		*ft_read_file(int fd);
 char		*ft_pread_file(int fd);
 void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
+
+/******************************************************************************\
+* WINDOW																	   *
+\******************************************************************************/
+
+void		init_window(int width, int height);
+void		*get_image(char *filename);
+void		put_image(char *img_path, t_position position);
+void		load_images(char **map);
+int			render(t_map *map);
+t_window	*w(void);
+int			close_window(t_window *window);
 
 #endif

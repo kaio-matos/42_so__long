@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_window.c                                      :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:33:32 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 00:49:47 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:38:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,11 @@ void	init_window(int width, int height)
 	memory(PUSH, win->window);
 	if(!win->window)
 		on_error("MLX window could be opened\n");
+}
+
+int	close_window(t_window *window)
+{
+	if (window->window)
+		mlx_destroy_window(window->init, window->window);
+	return (0);
 }
