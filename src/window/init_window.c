@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:33:32 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/27 02:42:15 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:49:47 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ void	init_window(int width, int height)
 	win->width = width;
 	win->height = height;
 	win->init = mlx_init();
+	memory(PUSH, win->init);
 	if(!win->init)
 		on_error("MLX could not be initialized\n");
 	win->window = mlx_new_window(win->init, win->width, win->height, "So_Long");
+	memory(PUSH, win->window);
 	if(!win->window)
-	{
-		free(win->init);
 		on_error("MLX window could be opened\n");
-	}
 }
