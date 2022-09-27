@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/27 01:21:49 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:30:56 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <libft.h>
 # include <fcntl.h>
 # include <mlx.h>
+# define PIXELS 32
 
 /******************************************************************************\
 * LOGGER																	   *
@@ -74,7 +75,12 @@ typedef struct s_window
 	int		height;
 }	t_window;
 
-t_window	init_window(int width, int height);
+void		init_window(int width, int height);
+void		*get_image(char *filename);
+void		put_image(char *img_path, t_position position);
+void		load_images(char **map);
+int			render(t_map *map);
+t_window	*w(void);
 
 /******************************************************************************\
 * MEMORY																       *
@@ -98,5 +104,6 @@ void		ft_free_matrix(char **matrix);
 char		**ft_psplit(const char *s, char c);
 char		*ft_read_file(int fd);
 char		*ft_pread_file(int fd);
+void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
 
 #endif

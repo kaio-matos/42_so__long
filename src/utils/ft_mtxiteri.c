@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_mtxiteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 01:07:05 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 00:30:29 by kmatos-s         ###   ########.fr       */
+/*   Created: 2022/05/30 09:01:04 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/09/27 03:11:26 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <libft.h>
 
-void	so_long(t_map map)
+void	ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *))
 {
-	init_window(map.width * PIXELS, map.height * PIXELS);
-	load_images(map.matrix);
-	mlx_loop_hook(w()->init, render, &map);
-	mlx_loop(w()->init);
-	mlx_loop_end(w()->init);
+	unsigned int	i;
+	unsigned int	j;
+
+	i = 0;
+	while (mtx[i])
+	{
+	    j = 0;
+        while (mtx[i][j])
+        {
+		    f(i, j, &mtx[i][j]);
+            j++;
+        }
+		i++;
+	}
 }

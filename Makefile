@@ -7,9 +7,9 @@ NAME = so_long
 files = main.c\
 	app/so_long.c\
 	mapper/map.c mapper/map_utils.c mapper/is_component.c mapper/checkers.c\
-	window/init_window.c\
+	window/init_window.c window/render_window.c window/utils_window.c\
 	memory/memory.c memory/memory_utils.c\
-	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c\
+	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c\
 	logger/log.c
 SRCS = $(addprefix src/,$(files))
 OBJS = $(SRCS:.c=.o)
