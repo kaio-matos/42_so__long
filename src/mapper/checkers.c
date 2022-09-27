@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 01:53:45 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:53:50 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:37:05 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ int	check_components_number(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			j++;
 			players += is_player(map[i][j]);
 			exits += is_exit(map[i][j]);
 			collectables += is_collectable(map[i][j]);
+			j++;
 		}
 		i++;
 	}
