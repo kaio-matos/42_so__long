@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 02:33:58 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 02:50:20 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ void		check_map(t_map map);
 t_map		*m(void);
 void		init_map(char **map);
 void		swap_char(t_position current_position, t_position end_position);
-t_position	get_player_pos();
+t_position	get_player_current_position();
+char		get_pos_component(t_position pos);
 
 /******************************************************************************\
 * MEMORY																       *
