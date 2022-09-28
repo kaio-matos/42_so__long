@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 01:43:23 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 02:33:58 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ enum		e_memory_actions
 * SO_LONG																	   *
 \******************************************************************************/
 
-void		so_long(t_map map);
+void		so_long();
+void		move_player(int pressed_key);
 
 /******************************************************************************\
 * EVENTS																	   *
@@ -95,6 +96,10 @@ int			check_border_walls(char **map, int width, int height);
 int			check_valid_components(char **map);
 int			check_components_number(char **map);
 void		check_map(t_map map);
+t_map		*m(void);
+void		init_map(char **map);
+void		swap_char(t_position current_position, t_position end_position);
+t_position	get_player_pos();
 
 /******************************************************************************\
 * MEMORY																       *

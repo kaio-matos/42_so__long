@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters.c                                          :+:      :+:    :+:   */
+/*   swap_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:53:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 02:37:12 by kmatos-s         ###   ########.fr       */
+/*   Created: 2022/09/28 01:51:25 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/09/28 02:21:59 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-t_position	get_player_pos()
+void	swap_char(t_position current_position, t_position end_position)
 {
-	t_position	pos;
-	char		**map;
+	char	old_char;
+	char	new_char;
 
-	map = m()->matrix;
-	pos.y = 0;
-	while (map[pos.y])
-	{
-		pos.x = 0;
-		while (map[pos.y][pos.x])
-		{
-			if (is_player(map[pos.y][pos.x]))
-				return (pos);
-			pos.x++;
-		}
-		pos.y++;
-	}
-	pos.x = -1;
-	pos.y = -1;
-	return (pos);
+	old_char = m()->matrix[current_position.y][current_position.x];
+	new_char = m()->matrix[end_position.y][end_position.x];
+	m()->matrix[current_position.y][current_position.x] = new_char;
+	m()->matrix[end_position.y][end_position.x] = old_char;
 }

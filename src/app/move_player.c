@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters.c                                          :+:      :+:    :+:   */
+/*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 00:53:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 02:37:12 by kmatos-s         ###   ########.fr       */
+/*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/09/28 02:39:32 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-t_position	get_player_pos()
+t_position	position(int x, int y)
 {
 	t_position	pos;
-	char		**map;
-
-	map = m()->matrix;
-	pos.y = 0;
-	while (map[pos.y])
-	{
-		pos.x = 0;
-		while (map[pos.y][pos.x])
-		{
-			if (is_player(map[pos.y][pos.x]))
-				return (pos);
-			pos.x++;
-		}
-		pos.y++;
-	}
-	pos.x = -1;
-	pos.y = -1;
+	pos.x = x;
+	pos.y = y;
 	return (pos);
+}
+
+void	move_player(int pressed_key)
+{
+	t_position	player_pos;
+
+	player_pos = get_player_pos();
+	if (pressed_key == KEY_W || pressed_key == KEY_UP)
+		swap_char(player_pos, position(player_pos.x, player_pos.y - 1));
+	render(m());
 }

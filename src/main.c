@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/27 01:20:53 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 02:02:13 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,10 @@ char	*read_file(char *file_name)
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
-
 	initial_check(argc, argv);
-	map.matrix = ft_psplit(read_file(argv[1]), '\n');
-	map.width = ft_matrix_width(map.matrix);
-	map.height = ft_matrix_height(map.matrix);
-	check_map(map);
-	so_long(map);
+	init_map(ft_psplit(read_file(argv[1]), '\n'));
+	check_map(*m());
+	so_long();
 	memory(FREE, NULL);
 	return (0);
 }

@@ -6,11 +6,25 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/27 01:21:26 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:56:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
+
+t_map	*m(void)
+{
+	static t_map	map_instance;
+
+	return &map_instance;
+}
+
+void	init_map(char **map)
+{
+	m()->matrix = map;
+	m()->width = ft_matrix_width(m()->matrix);
+	m()->height = ft_matrix_height(m()->matrix);
+}
 
 void	check_map(t_map map)
 {
