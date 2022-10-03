@@ -6,13 +6,13 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/29 05:53:17 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:37:59 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static t_position	position(int x, int y)
+static t_position	new_position(int x, int y)
 {
 	t_position	pos;
 
@@ -24,15 +24,13 @@ static t_position	position(int x, int y)
 static void	move_player(int x, int y)
 {
 	char		swaping_component;
-	t_position	player_pos;
 	t_position	position_to_go;
 
-	player_pos = get_player_current_position();
-	position_to_go = position(player_pos.x + x, player_pos.y + y);
+	position_to_go = new_position(game()->player.x + x, game()->player.y + y);
 	swaping_component = get_pos_component(position_to_go);
 	if (is_wall(swaping_component))
 		return ;
-	swap_char(player_pos, position_to_go);
+	game__set_player(position_to_go);
 }
 
 void	move_player_manager(int pressed_key)

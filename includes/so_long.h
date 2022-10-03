@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/29 05:43:37 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:40:28 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ typedef struct s_window
 	int		width;
 	int		height;
 }	t_window;
+
+typedef struct s_game
+{
+	t_position	player;
+	t_position	*collectables;
+	int			collected;
+	int			ended;
+} t_game;
 
 enum		e_memory_actions
 {
@@ -109,6 +117,14 @@ char		get_pos_component(t_position pos);
 void		memory(enum e_memory_actions action, void *payload);
 void		*ft_salloc(size_t size);
 void		*ft_palloc(size_t size);
+
+/******************************************************************************\
+* GAME																		   *
+\******************************************************************************/
+
+t_game	*game();
+void	init_game();
+void	game__set_player(t_position player);
 
 /******************************************************************************\
 * UTILS																	       *

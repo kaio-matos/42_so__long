@@ -9,6 +9,7 @@ files = main.c\
 	mapper/map.c mapper/map_utils.c mapper/is_component.c mapper/checkers.c mapper/getters.c mapper/setters.c\
 	window/window.c window/render_window.c window/utils_window.c\
 	memory/memory.c memory/memory_utils.c\
+	state/game.c\
 	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c\
 	events/key_press.c\
 	logger/log.c
