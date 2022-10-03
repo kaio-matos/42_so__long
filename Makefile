@@ -7,7 +7,7 @@ NAME = so_long
 files = main.c\
 	app/so_long.c app/move_player.c\
 	mapper/map.c mapper/map_utils.c mapper/is_component.c mapper/checkers.c mapper/getters.c mapper/setters.c\
-	window/window.c window/render_window.c window/utils_window.c\
+	window/window.c window/w__render.c window/w__utils.c\
 	memory/memory.c memory/memory_utils.c\
 	state/game.c\
 	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c\

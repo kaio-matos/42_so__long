@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:40:28 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:44:54 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,12 +140,11 @@ void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
 * WINDOW																	   *
 \******************************************************************************/
 
-void		init_window(int width, int height);
-void		*get_image(char *filename);
-void		put_image(char *img_path, t_position position);
-void		load_images(char **map);
-int			render(t_map *map);
 t_window	*w(void);
-int			close_window(t_window *window);
+void		w__init(int width, int height);
+int			w__close(t_window *window);
+void		*w__get_image(char *filename);
+void		w__put_image(char *img_path, t_position position);
+int			w__render(t_map *map);
 
 #endif

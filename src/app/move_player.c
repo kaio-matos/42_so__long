@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:37:59 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:47:39 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	move_player_manager(int pressed_key)
 		move_player(-1, 0);
 	if (pressed_key == KEY_D || pressed_key == KEY_RIGHT)
 		move_player(1, 0);
-	render(m()); // ! REMOVE LATER
+	w__render(m()); // ! REMOVE LATER
 }

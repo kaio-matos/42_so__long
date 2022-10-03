@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:33:32 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 01:38:38 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:42:08 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_window	*w(void)
 	return &window_instance;
 }
 
-void	init_window(int width, int height)
+void	w__init(int width, int height)
 {
 	t_window	*win;
 
@@ -36,7 +36,7 @@ void	init_window(int width, int height)
 		on_error("MLX window could be opened\n");
 }
 
-int	close_window(t_window *window)
+int	w__close(t_window *window)
 {
 	if (window->window)
 		mlx_destroy_window(window->init, window->window);
