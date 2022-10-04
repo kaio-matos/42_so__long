@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:08:41 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:23:12 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,10 @@ int			m__check_width(char **map, size_t width);
 int			m__check_border_walls(char **map, int width, int height);
 int			m__check_valid_components(char **map);
 int			m__check_components_number(char **map);
+t_position	m__get_player();
+char		m__get_component(t_position pos);
 void		m__swap_char(t_position current_position, t_position end_position);
-t_position	m__get_player_current_position();
-char		m__get_pos_component(t_position pos);
+void		m__set_component(t_position position, char c);
 
 /******************************************************************************\
 * MEMORY																       *

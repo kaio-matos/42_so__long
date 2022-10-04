@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:55:37 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:12:49 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,9 @@ static t_position	new_position(int x, int y)
 
 static void	move_player(int x, int y)
 {
-	char		swaping_component;
 	t_position	position_to_go;
 
 	position_to_go = new_position(game()->player.x + x, game()->player.y + y);
-	swaping_component = m__get_pos_component(position_to_go);
-	if (m__is_wall(swaping_component))
-		return ;
 	game__set_player(position_to_go);
 }
 

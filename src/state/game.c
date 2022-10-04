@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:07:24 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:32:05 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,25 @@ t_game	*game()
 
 void	game__init()
 {
-	game()->player = m__get_player_current_position();
+	game()->player = m__get_player();
 	game()->ended = 0;
 	game()->collected = 0;
 }
 
-void	game__set_player(t_position player)
+void	game__set_player(t_position new_position)
 {
-	m__swap_char(game()->player, player);
-	game()->player = player;
+	char	swaping_component;
+
+	swaping_component = m__get_component(new_position);
+	if (m__is_wall(swaping_component))
+		return ;
+	if (m__is_collectable(swaping_component))
+	{
+		m__set_component(game()->player, '0');
+		m__set_component(new_position, 'P');
+		game()->collected += 1;
+	}
+	else
+		m__swap_char(game()->player, new_position);
+	game()->player = new_position;
 }
