@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 01:07:05 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:03:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:08:28 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		so_long()
 {
 	w__init(m()->width * PIXELS, m()->height * PIXELS);
-	init_game();
+	game__init();
 	w__render(m());
 	// mlx_loop_hook(w()->init, w__render, &map);
 	mlx_hook(w()->window, 17, 1 << 24, w__close, w());

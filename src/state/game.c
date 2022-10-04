@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:56:53 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:07:24 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_game	*game()
 	return &game_instance;
 }
 
-void	init_game()
+void	game__init()
 {
 	game()->player = m__get_player_current_position();
 	game()->ended = 0;
