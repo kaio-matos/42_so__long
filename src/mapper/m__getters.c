@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 00:53:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:15:02 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:51:31 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,25 @@ t_position	m__get_player()
 	pos.x = -1;
 	pos.y = -1;
 	return (pos);
+}
+
+int	m__get_component_amount(int (*is_valid_component) (char))
+{
+	int	i;
+	int	j;
+	int	counted;
+
+	i = 0;
+	counted = 0;
+	while (m()->matrix[i])
+	{
+		j = 0;
+		while (m()->matrix[i][j])
+		{
+			counted += is_valid_component(m()->matrix[i][j]);
+			j++;
+		}
+		i++;
+	}
+	return (counted);
 }

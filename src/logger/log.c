@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 02:58:36 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/23 02:53:12 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:53:36 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	on_error(char	*error_message)
 	ft_printf(SHELL_R);
 	ft_printf("[so_long] Error:\n%s", error_message);
 	ft_printf(SHELL_RC);
-	memory(FREE, NULL);
-	exit(1);
+	ft_exit(1);
 }
 
 void	on_success(char	*success_message)

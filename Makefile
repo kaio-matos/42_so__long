@@ -10,7 +10,7 @@ files = main.c\
 	window/window.c window/w__render.c window/w__utils.c\
 	memory/memory.c memory/memory_utils.c\
 	state/game.c\
-	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c\
+	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c utils/ft_exit.c\
 	events/e__key_press.c\
 	logger/log.c
 SRCS = $(addprefix src/,$(files))

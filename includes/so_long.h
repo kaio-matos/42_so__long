@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:38:54 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:54:13 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_window
 typedef struct s_game
 {
 	t_position	player;
-	t_position	*collectables;
+	int			collectables;
 	int			collected;
 	int			ended;
 } t_game;
@@ -113,6 +113,7 @@ int			m__check_valid_components(char **map);
 int			m__check_components_number(char **map);
 t_position	m__get_player();
 char		m__get_component(t_position pos);
+int			m__get_component_amount(int (*is_valid_component) (char));
 void		m__swap_char(t_position current_position, t_position end_position);
 void		m__set_component(t_position position, char c);
 
@@ -141,6 +142,7 @@ char		**ft_psplit(const char *s, char c);
 char		*ft_read_file(int fd);
 char		*ft_pread_file(int fd);
 void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
+void		ft_exit(int status);
 
 /******************************************************************************\
 * WINDOW																	   *
