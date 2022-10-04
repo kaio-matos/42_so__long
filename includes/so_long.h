@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:23:12 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:38:54 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
+# define C_PLAYER 'P'
+# define C_COLLECTABLE 'C'
+# define C_EXIT 'E'
+# define C_GROUND '0'
+# define C_WALL '1'
 
 /******************************************************************************\
 * TYPES 																	   *

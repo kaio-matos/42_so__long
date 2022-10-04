@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:32:05 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:39:32 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	game__set_player(t_position new_position)
 		return ;
 	if (m__is_collectable(swaping_component))
 	{
-		m__set_component(game()->player, '0');
-		m__set_component(new_position, 'P');
+		m__set_component(game()->player, C_GROUND);
+		m__set_component(new_position, C_PLAYER);
 		game()->collected += 1;
 	}
 	else
