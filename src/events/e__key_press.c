@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_press.c                                        :+:      :+:    :+:   */
+/*   e__key_press.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:34:55 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:46:51 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 02:03:10 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	key_press(int key, t_window *window)
+int	e__key_press(int key, t_window *window)
 {
 	if (key == KEY_ESC)
 		w__close(window);
