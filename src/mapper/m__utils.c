@@ -6,18 +6,18 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 01:33:19 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:41:12 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:57:48 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-size_t	ft_matrix_width(char **matrix)
+size_t	m__width(char **matrix)
 {
 	return (ft_strlen(matrix[0]));
 }
 
-size_t	ft_matrix_height(char **matrix)
+size_t	m__height(char **matrix)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ size_t	ft_matrix_height(char **matrix)
 	return (i);
 }
 
-int	is_valid_map_extension(char *file_name)
+int	m__is_valid_extension(char *file_name)
 {
 	int		file_name_len;
 	int		i;

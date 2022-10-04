@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:44:54 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:57:44 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,25 +90,25 @@ void		on_success(char *success_message);
 * MAPPER																	   *
 \******************************************************************************/
 
-int			is_player(char c);
-int			is_collectable(char c);
-int			is_exit(char c);
-int			is_ground(char c);
-int			is_wall(char c);
-size_t		ft_matrix_width(char **matrix);
-size_t		ft_matrix_height(char **matrix);
-int			is_valid_map_extension(char *file_name);
-int			check_retangular(int width, int height);
-int			check_width(char **map, size_t width);
-int			check_border_walls(char **map, int width, int height);
-int			check_valid_components(char **map);
-int			check_components_number(char **map);
-void		check_map(t_map map);
 t_map		*m(void);
-void		init_map(char **map);
-void		swap_char(t_position current_position, t_position end_position);
-t_position	get_player_current_position();
-char		get_pos_component(t_position pos);
+void		m__init(char **map);
+void		m__check(t_map map);
+int			m__is_player(char c);
+int			m__is_collectable(char c);
+int			m__is_exit(char c);
+int			m__is_ground(char c);
+int			m__is_wall(char c);
+size_t		m__width(char **matrix);
+size_t		m__height(char **matrix);
+int			m__is_valid_extension(char *file_name);
+int			m__check_retangular(int width, int height);
+int			m__check_width(char **map, size_t width);
+int			m__check_border_walls(char **map, int width, int height);
+int			m__check_valid_components(char **map);
+int			m__check_components_number(char **map);
+void		m__swap_char(t_position current_position, t_position end_position);
+t_position	m__get_player_current_position();
+char		m__get_pos_component(t_position pos);
 
 /******************************************************************************\
 * MEMORY																       *

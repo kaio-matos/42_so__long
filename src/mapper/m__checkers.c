@@ -6,20 +6,20 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 01:53:45 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 00:37:05 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:55:37 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	check_retangular(int width, int height)
+int	m__check_retangular(int width, int height)
 {
 	if (width == height)
 		return (0);
 	return (1);
 }
 
-int	check_width(char **map, size_t width)
+int	m__check_width(char **map, size_t width)
 {
 	int	i;
 
@@ -30,34 +30,34 @@ int	check_width(char **map, size_t width)
 	return (1);
 }
 
-int	check_border_walls(char **map, int width, int height)
+int	m__check_border_walls(char **map, int width, int height)
 {
 	int	i;
 
 	i = 0;
-	while (is_wall(map[0][i]))
+	while (m__is_wall(map[0][i]))
 		i++;
 	if (width != i)
 		return (0);
 	i = 0;
-	while (is_wall(map[height - 1][i]))
+	while (m__is_wall(map[height - 1][i]))
 		i++;
 	if (width != i)
 		return (0);
 	i = 0;
-	while (map[i] && is_wall(map[i][0]))
+	while (map[i] && m__is_wall(map[i][0]))
 		i++;
 	if (height != i)
 		return (0);
 	i = 0;
-	while (map[i] && is_wall(map[i][width - 1]))
+	while (map[i] && m__is_wall(map[i][width - 1]))
 		i++;
 	if (height != i)
 		return (0);
 	return (1);
 }
 
-int	check_valid_components(char **map)
+int	m__check_valid_components(char **map)
 {
 	int	i;
 	int	j;
@@ -68,9 +68,9 @@ int	check_valid_components(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!is_collectable(map[i][j]) && !is_exit(map[i][j]) &&
-				!is_ground(map[i][j]) && !is_wall(map[i][j]) &&
-				!is_player(map[i][j]))
+			if (!m__is_collectable(map[i][j]) && !m__is_exit(map[i][j]) &&
+				!m__is_ground(map[i][j]) && !m__is_wall(map[i][j]) &&
+				!m__is_player(map[i][j]))
 				return (0);
 			j++;
 		}
@@ -79,7 +79,7 @@ int	check_valid_components(char **map)
 	return (1);
 }
 
-int	check_components_number(char **map)
+int	m__check_components_number(char **map)
 {
 	int	i;
 	int	j;
@@ -96,9 +96,9 @@ int	check_components_number(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			players += is_player(map[i][j]);
-			exits += is_exit(map[i][j]);
-			collectables += is_collectable(map[i][j]);
+			players += m__is_player(map[i][j]);
+			exits += m__is_exit(map[i][j]);
+			collectables += m__is_collectable(map[i][j]);
 			j++;
 		}
 		i++;

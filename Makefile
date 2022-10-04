@@ -6,7 +6,7 @@ CCF_DEBUG = -Wall -Wextra -Werror -g
 NAME = so_long
 files = main.c\
 	app/so_long.c app/move_player.c\
-	mapper/map.c mapper/map_utils.c mapper/is_component.c mapper/checkers.c mapper/getters.c mapper/setters.c\
+	mapper/map.c mapper/m__utils.c mapper/m__is_component.c mapper/m__checkers.c mapper/m__getters.c mapper/m__setters.c\
 	window/window.c window/w__render.c window/w__utils.c\
 	memory/memory.c memory/memory_utils.c\
 	state/game.c\

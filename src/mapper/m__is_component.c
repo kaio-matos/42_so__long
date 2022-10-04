@@ -1,24 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setters.c                                          :+:      :+:    :+:   */
+/*   is_component.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 05:52:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/29 05:52:44 by kmatos-s         ###   ########.fr       */
+/*   Created: 2022/09/22 01:32:20 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/10/04 01:55:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	swap_char(t_position current_position, t_position end_position)
+int	m__is_player(char c)
 {
-	char	old_char;
-	char	new_char;
+	if (c == 'P')
+		return (1);
+	return (0);
+}
 
-	old_char = m()->matrix[current_position.y][current_position.x];
-	new_char = m()->matrix[end_position.y][end_position.x];
-	m()->matrix[current_position.y][current_position.x] = new_char;
-	m()->matrix[end_position.y][end_position.x] = old_char;
+int	m__is_collectable(char c)
+{
+	if (c == 'C')
+		return (1);
+	return (0);
+}
+
+int	m__is_exit(char c)
+{
+	if (c == 'E')
+		return (1);
+	return (0);
+}
+
+int	m__is_ground(char c)
+{
+	if (c == '0')
+		return (1);
+	return (0);
+}
+
+int	m__is_wall(char c)
+{
+	if (c == '1')
+		return (1);
+	return (0);
 }

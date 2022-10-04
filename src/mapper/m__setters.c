@@ -1,48 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_component.c                                     :+:      :+:    :+:   */
+/*   setters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 01:32:20 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:38:06 by kmatos-s         ###   ########.fr       */
+/*   Created: 2022/09/29 05:52:11 by kmatos-s          #+#    #+#             */
+/*   Updated: 2022/10/04 01:56:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	is_player(char c)
+void	m__swap_char(t_position current_position, t_position end_position)
 {
-	if (c == 'P')
-		return (1);
-	return (0);
-}
+	char	old_char;
+	char	new_char;
 
-int	is_collectable(char c)
-{
-	if (c == 'C')
-		return (1);
-	return (0);
-}
-
-int	is_exit(char c)
-{
-	if (c == 'E')
-		return (1);
-	return (0);
-}
-
-int	is_ground(char c)
-{
-	if (c == '0')
-		return (1);
-	return (0);
-}
-
-int	is_wall(char c)
-{
-	if (c == '1')
-		return (1);
-	return (0);
+	old_char = m()->matrix[current_position.y][current_position.x];
+	new_char = m()->matrix[end_position.y][end_position.x];
+	m()->matrix[current_position.y][current_position.x] = new_char;
+	m()->matrix[end_position.y][end_position.x] = old_char;
 }
