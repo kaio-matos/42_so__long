@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 01:07:05 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/05 05:32:02 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:36:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void		so_long(void)
 	mlx_key_hook(w()->window, e__key_press, w());
 	mlx_loop(w()->init);
 	mlx_loop_end(w()->init);
-	w__close(w());
 }
