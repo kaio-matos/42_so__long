@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:54:13 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:19:45 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,31 @@ typedef struct s_game
 	int			ended;
 } t_game;
 
+
 enum		e_memory_actions
 {
 	FREE,
 	PUSH
 };
 
+enum		e_memory_types
+{
+	IMAGE,
+	VOID
+};
+
+typedef struct s_memory_node
+{
+	void			*content;
+	enum e_memory_types	type;
+} t_memory_node;
+
+
 /******************************************************************************\
 * SO_LONG																	   *
 \******************************************************************************/
 
-void		so_long();
+void		so_long(void);
 void		move_player_manager(int pressed_key);
 
 /******************************************************************************\
@@ -111,7 +125,7 @@ int			m__check_width(char **map, size_t width);
 int			m__check_border_walls(char **map, int width, int height);
 int			m__check_valid_components(char **map);
 int			m__check_components_number(char **map);
-t_position	m__get_player();
+t_position	m__get_player(void);
 char		m__get_component(t_position pos);
 int			m__get_component_amount(int (*is_valid_component) (char));
 void		m__swap_char(t_position current_position, t_position end_position);
@@ -121,16 +135,18 @@ void		m__set_component(t_position position, char c);
 * MEMORY																       *
 \******************************************************************************/
 
-void		memory(enum e_memory_actions action, void *payload);
-void		*ft_salloc(size_t size);
-void		*ft_palloc(size_t size);
+void	memory(enum e_memory_actions action, t_memory_node payload);
+void	new_memory(void *content, enum e_memory_types type);
+void	free_memory(void);
+void	*ft_salloc(size_t size);
+void	*ft_palloc(size_t size);
 
 /******************************************************************************\
 * GAME																		   *
 \******************************************************************************/
 
-t_game	*game();
-void	game__init();
+t_game	*game(void);
+void	game__init(void);
 void	game__set_player(t_position player);
 
 /******************************************************************************\

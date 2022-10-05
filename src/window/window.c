@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:33:32 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 03:07:01 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:31:48 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ void	w__init(int width, int height)
 
 int	w__close(t_window *window)
 {
-	if (window->window)
-		mlx_destroy_window(window->init, window->window);
+	free_memory();
+	mlx_destroy_window(window->init, window->window);
+	mlx_destroy_display(window->init);
+	free(window->init);
 	ft_exit(0);
 	return (0);
 }

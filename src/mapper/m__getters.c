@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 00:53:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:51:31 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:21:00 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	m__get_component(t_position pos)
 	return(m()->matrix[pos.y][pos.x]);
 }
 
-t_position	m__get_player()
+t_position	m__get_player(void)
 {
 	t_position	pos;
 	char		**map;

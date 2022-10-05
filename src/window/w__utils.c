@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:53:51 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:49:25 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 04:49:49 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	*w__get_image(char *filename)
 	void	*img;
 
 	img = mlx_xpm_file_to_image(w()->init, filename, &w()->width, &w()->height);
-	memory(PUSH, img);
 	if (!img)
 		on_error("XPM image couldn't be loaded\n");
+	new_memory(img, IMAGE);
 	return(img);
 }
 

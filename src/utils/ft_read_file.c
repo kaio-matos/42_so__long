@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 01:26:46 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:30:51 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 04:44:28 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ char	*ft_pread_file(int fd)
 	char	*file;
 
 	file = ft_read_file(fd);
-	memory(PUSH, file);
+	new_memory(file, VOID);
 	return (file);
 }

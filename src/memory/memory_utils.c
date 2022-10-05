@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 02:51:25 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:31:38 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:20:41 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ void	*ft_palloc(size_t size)
 	void	*mem;
 
 	mem = ft_salloc(size);
-	memory(PUSH, mem);
+	new_memory(mem, VOID);
 	return (mem);
+}
+
+void	new_memory(void *content, enum e_memory_types type)
+{
+	t_memory_node	node;
+
+	node.content = content;
+	node.type = type;
+	memory(PUSH, node);
+}
+
+void	free_memory(void)
+{
+	t_memory_node	node;
+
+	node.content = NULL;
+	node.type = VOID;
+	memory(FREE, node);
 }

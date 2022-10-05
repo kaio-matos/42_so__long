@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 02:51:59 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 03:05:18 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:14:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_exit(int status)
 {
-	memory(FREE, NULL);
 	exit(status);
 }

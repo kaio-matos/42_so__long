@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 00:31:48 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/24 01:36:59 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/05 03:54:47 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ char	**ft_psplit(const char *s, char c)
 		return (splitted);
 	while (splitted[i])
 	{
-		memory(PUSH, splitted[i]);
+		new_memory(splitted[i], VOID);
 		i++;
 	}
-	memory(PUSH, splitted);
+	new_memory(splitted, VOID);
 	return (splitted);
 }
