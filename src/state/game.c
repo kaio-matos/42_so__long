@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/06 03:24:33 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/06 03:55:00 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	game__set_player(t_position new_position)
 	else if (m__is_exit(swaping_component))
 	{
 		game()->ended = 1;
-		ft_exit(0);
+		w__close(w());
 	}
 	else
 		m__swap_char(game()->player, new_position);
