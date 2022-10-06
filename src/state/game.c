@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/06 03:55:00 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/06 04:35:10 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ void	game__set_player(t_position new_position)
 		w__close(w());
 	}
 	else
-		m__swap_char(game()->player, new_position);
+	{
+		m__set_component(game()->player, C_GROUND);
+		m__set_component(new_position, C_PLAYER);
+	}
+		// m__swap_char(game()->player, new_position);
 	game__add_movements();
 	game()->player = new_position;
 }
