@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/05 05:50:14 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/06 03:22:16 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_game
 	t_position	player;
 	int			collectables;
 	int			collected;
+	int			movements;
 	int			ended;
 } t_game;
 
