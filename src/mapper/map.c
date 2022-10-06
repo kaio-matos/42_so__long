@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 01:56:39 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/06 03:30:27 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	m__check(t_map map)
 	if (!m__check_width(map.matrix, map.width))
 		on_error("Please insert a valid map, some size is wrong.\n");
 	if (!m__check_retangular(map.width, map.height))
-		on_error("Please insert a valid map, the are is not retangular\n");
+		on_error("Please insert a valid map, quadratic maps are not allowed\n");
 	if (!m__check_border_walls(map.matrix, map.width, map.height))
 		on_error("Please insert a valid map, some wall is wrong.\n");
 	if (!m__check_valid_components(map.matrix))
