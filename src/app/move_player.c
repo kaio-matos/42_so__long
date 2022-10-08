@@ -6,13 +6,13 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/06 04:14:28 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/07 01:06:08 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static t_position	new_position(int x, int y)
+t_position	new_position(int x, int y)
 {
 	t_position	pos;
 

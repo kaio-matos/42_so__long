@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/06 03:22:16 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/08 02:56:47 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_position
 	int		x;
 	int		y;
 }	t_position;
+
+t_position		new_position(int x, int y);
 
 typedef struct s_map
 {
@@ -159,6 +161,7 @@ char		**ft_psplit(const char *s, char c);
 char		*ft_read_file(int fd);
 char		*ft_pread_file(int fd);
 void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
+char		**ft_mtxcpy(char **map)
 void		ft_exit(int status);
 
 /******************************************************************************\
