@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 01:42:15 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 01:49:57 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void		ft_exit(int status);
 
 t_window	*w(void);
 void		w__init(int width, int height);
-int			w__close(t_window *window);
+int			w__close(void);
 void		*w__get_image(char *filename);
 void		w__put_image(void	*img, t_position position);
 int			w__render(t_map *map);
