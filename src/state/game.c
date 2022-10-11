@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/11 02:48:26 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 01:17:58 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_game	*game(void)
 
 void	game__init(void)
 {
-	game()->player = m__get_component_position(C_PLAYER);
-	game()->collectables = m__get_component_amount(&m__is_collectable);
+	game()->player = m()->player;
+	game()->collectables = m__get_elm_amount(C_COLLECTABLE);
 	game()->ended = 0;
 	game()->collected = 0;
 	game()->movements = 0;
@@ -39,13 +39,13 @@ void	game__set_player(t_position new_position)
 {
 	char	swaping_component;
 
-	swaping_component = m__get_component(new_position);
+	swaping_component = m__get_elm(new_position);
 	if (m__is_wall(swaping_component) || (m__is_exit(swaping_component) && game()->collected != game()->collectables))
 		return ;
 	if (m__is_collectable(swaping_component))
 	{
-		m__set_component(game()->player, C_GROUND);
-		m__set_component(new_position, C_PLAYER);
+		m__set_elm(game()->player, C_GROUND);
+		m__set_elm(new_position, C_PLAYER);
 		game()->collected += 1;
 	}
 	else if (m__is_exit(swaping_component))
@@ -55,8 +55,8 @@ void	game__set_player(t_position new_position)
 	}
 	else
 	{
-		m__set_component(game()->player, C_GROUND);
-		m__set_component(new_position, C_PLAYER);
+		m__set_elm(game()->player, C_GROUND);
+		m__set_elm(new_position, C_PLAYER);
 	}
 		// m__swap_char(game()->player, new_position);
 	game__add_movements();

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 01:53:45 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:04:03 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 00:28:12 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	m__check_border_walls(char **map, int width, int height)
 	return (1);
 }
 
-int	m__check_valid_components(char **map)
+int	m__check_valid_elms(char **map)
 {
 	int	i;
 	int	j;
@@ -79,7 +79,7 @@ int	m__check_valid_components(char **map)
 	return (1);
 }
 
-int	m__check_components_number(char **map)
+int	m__check_elms_number(char **map)
 {
 	int	i;
 	int	j;

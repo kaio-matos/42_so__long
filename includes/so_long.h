@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/11 02:48:38 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 01:42:15 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ t_position		new_position(int x, int y);
 
 typedef struct s_map
 {
-	size_t	width;
-	size_t	height;
-	char	**matrix;
+	size_t		width;
+	size_t		height;
+	char		**matrix;
+	t_position	player;
+	t_position	*collectables;
 }	t_map;
 
 typedef struct s_window
@@ -127,15 +129,17 @@ int			m__is_valid_extension(char *file_name);
 int			m__check_retangular(int width, int height);
 int			m__check_width(char **map, size_t width);
 int			m__check_border_walls(char **map, int width, int height);
-int			m__check_valid_components(char **map);
-int			m__check_components_number(char **map);
-t_position	m__get_component_position(char c);
-char		m__get_component(t_position pos);
-int			m__get_component_amount(int (*is_valid_component) (char));
-void		m__swap_char(t_position current_position, t_position end_position);
-void		m__set_component(t_position position, char c);
+int			m__check_valid_elms(char **map);
+int			m__check_elms_number(char **map);
 int			m__check_path(t_map map);
-t_position	*m__get_collectables(void);
+
+char		m__get_elm(t_position pos);
+int			m__get_elm_amount(char c);
+t_position	m__get_elm_position(char c);
+t_position	*m__get_elm_positions(char c);
+
+void		m__set_elm(t_position position, char c);
+void		m__swap_char(t_position current_position, t_position end_position);
 
 /******************************************************************************\
 * MEMORY																       *
