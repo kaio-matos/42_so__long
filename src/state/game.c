@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/06 04:35:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:48:26 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_game	*game(void)
 
 void	game__init(void)
 {
-	game()->player = m__get_player();
+	game()->player = m__get_component_position(C_PLAYER);
 	game()->collectables = m__get_component_amount(&m__is_collectable);
 	game()->ended = 0;
 	game()->collected = 0;

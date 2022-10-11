@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mtxcpy.c                                        :+:      :+:    :+:   */
+/*   ft_mtxsdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:48:52 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/08 02:56:26 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:18:19 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	**ft_mtxcpy(char **map)
+#include <so_long.h>
+
+char	**ft_mtxsdup(char **mtx, size_t rows)
 {
-	char	**new;
-	int		i;
+	char	**mtx_cpy;
+	size_t		i;
 
 	i = 0;
-	new = ft_palloc((ft_strlen(map[0]) + 1) * (char *));
-	while (map[i])
+	if (!rows)
+		return (NULL);
+	mtx_cpy = ft_palloc((rows + 1) * sizeof(char *));
+	while (i < rows && mtx[i])
 	{
-		new = map[i];
+		mtx_cpy[i] = ft_strdup(mtx[i]);
+		new_memory(mtx_cpy[i], VOID);
 		i++;
 	}
-	map[i] = NULL;
-	return (new);
+	mtx_cpy[i] = NULL;
+    return (mtx_cpy);
 }

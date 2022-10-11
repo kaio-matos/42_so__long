@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/08 02:56:47 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:48:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int			e__key_press(int key, t_window *window);
 void		logg(char *message);
 void		on_error(char *error_message);
 void		on_success(char *success_message);
+void		ft_printf_mtx(char **m);
 
 /******************************************************************************\
 * MAPPER																	   *
@@ -128,11 +129,13 @@ int			m__check_width(char **map, size_t width);
 int			m__check_border_walls(char **map, int width, int height);
 int			m__check_valid_components(char **map);
 int			m__check_components_number(char **map);
-t_position	m__get_player(void);
+t_position	m__get_component_position(char c);
 char		m__get_component(t_position pos);
 int			m__get_component_amount(int (*is_valid_component) (char));
 void		m__swap_char(t_position current_position, t_position end_position);
 void		m__set_component(t_position position, char c);
+int			m__check_path(t_map map);
+t_position	*m__get_collectables(void);
 
 /******************************************************************************\
 * MEMORY																       *
@@ -161,7 +164,7 @@ char		**ft_psplit(const char *s, char c);
 char		*ft_read_file(int fd);
 char		*ft_pread_file(int fd);
 void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
-char		**ft_mtxcpy(char **map)
+char		**ft_mtxsdup(char **mtx, size_t rows);
 void		ft_exit(int status);
 
 /******************************************************************************\
