@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:48:52 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/11 02:18:19 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:16:44 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	**ft_mtxsdup(char **mtx, size_t rows)
 {
 	char	**mtx_cpy;
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	if (!rows)
@@ -28,5 +28,5 @@ char	**ft_mtxsdup(char **mtx, size_t rows)
 		i++;
 	}
 	mtx_cpy[i] = NULL;
-    return (mtx_cpy);
+	return (mtx_cpy);
 }

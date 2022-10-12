@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:53:51 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/05 05:50:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:19:01 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*w__get_image(char *filename)
 	if (!img)
 		on_error("XPM image couldn't be loaded\n");
 	new_memory(img, IMAGE);
-	return(img);
+	return (img);
 }
 
 void	w__put_image(void	*img, t_position position)

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 00:31:38 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:06:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_map	*m(void)
 {
 	static t_map	map_instance;
 
-	return &map_instance;
+	return (&map_instance);
 }
 
 void	m__init(char **map)
@@ -31,15 +31,15 @@ void	m__init(char **map)
 void	m__check(t_map map)
 {
 	if (!m__check_width(map.matrix, map.width))
-		on_error("Please insert a valid map, some size is wrong.\n");
+		on_error("Invalid map: some size is wrong.\n");
 	if (!m__check_retangular(map.width, map.height))
-		on_error("Please insert a valid map, quadratic maps are not allowed\n");
+		on_error("Invalid map: quadratic maps are not allowed\n");
 	if (!m__check_border_walls(map.matrix, map.width, map.height))
-		on_error("Please insert a valid map, some wall is wrong.\n");
+		on_error("Invalid map: some wall is wrong.\n");
 	if (!m__check_valid_elms(map.matrix))
-		on_error("Please insert a valid map, something is missing\n");
+		on_error("Invalid map: something is missing\n");
 	if (!m__check_elms_number(map.matrix))
-		on_error("Please insert a valid map, the map don't fit into the rules\n");
+		on_error("Invalid map: the map don't fit into the rules\n");
 	if (!m__check_path(map))
-		on_error("Please insert a valid map, the map have an invalid path\n");
+		on_error("Invalid map: the map have an invalid path\n");
 }

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:01:04 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/09/28 01:19:19 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:17:05 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *))
 	y = 0;
 	while (mtx[y])
 	{
-	    x = 0;
-        while (mtx[y][x])
-        {
-		    f(x, y, &mtx[y][x]);
-            x++;
-        }
+		x = 0;
+		while (mtx[y][x])
+		{
+			f(x, y, &mtx[y][x]);
+			x++;
+		}
 		y++;
 	}
 }

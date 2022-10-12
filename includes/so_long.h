@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 01:49:57 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:34:27 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_position
 	int		y;
 }	t_position;
 
-t_position		new_position(int x, int y);
+t_position	new_position(int x, int y);
 
 typedef struct s_map
 {
@@ -67,8 +67,7 @@ typedef struct s_game
 	int			collected;
 	int			movements;
 	int			ended;
-} t_game;
-
+}	t_game;
 
 enum		e_memory_actions
 {
@@ -84,10 +83,9 @@ enum		e_memory_types
 
 typedef struct s_memory_node
 {
-	void			*content;
 	enum e_memory_types	type;
-} t_memory_node;
-
+	void				*content;
+}	t_memory_node;
 
 /******************************************************************************\
 * SO_LONG																	   *
@@ -100,7 +98,7 @@ void		move_player_manager(int pressed_key);
 * EVENTS																	   *
 \******************************************************************************/
 
-int			e__key_press(int key, t_window *window);
+int			e__key_press(int key);
 
 /******************************************************************************\
 * LOGGER																	   *
@@ -145,19 +143,19 @@ void		m__swap_char(t_position current_position, t_position end_position);
 * MEMORY																       *
 \******************************************************************************/
 
-void	memory(enum e_memory_actions action, t_memory_node payload);
-void	new_memory(void *content, enum e_memory_types type);
-void	free_memory(void);
-void	*ft_salloc(size_t size);
-void	*ft_palloc(size_t size);
+void		memory(enum e_memory_actions action, t_memory_node payload);
+void		new_memory(void *content, enum e_memory_types type);
+void		free_memory(void);
+void		*ft_salloc(size_t size);
+void		*ft_palloc(size_t size);
 
 /******************************************************************************\
 * GAME																		   *
 \******************************************************************************/
 
-t_game	*game(void);
-void	game__init(void);
-void	game__set_player(t_position player);
+t_game		*game(void);
+void		game__init(void);
+void		game__set_player(t_position player);
 
 /******************************************************************************\
 * UTILS																	       *
@@ -167,7 +165,8 @@ void		ft_free_matrix(char **matrix);
 char		**ft_psplit(const char *s, char c);
 char		*ft_read_file(int fd);
 char		*ft_pread_file(int fd);
-void		ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
+void		ft_mtxiteri(char **mtx,
+				void (*f) (unsigned int, unsigned int, char *));
 char		**ft_mtxsdup(char **mtx, size_t rows);
 void		ft_exit(int status);
 

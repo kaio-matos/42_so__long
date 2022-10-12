@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 00:53:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 01:29:20 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:08:36 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	m__get_elm(t_position pos)
 {
-	return(m()->matrix[pos.y][pos.x]);
+	return (m()->matrix[pos.y][pos.x]);
 }
 
 t_position	m__get_elm_position(char c)
@@ -43,20 +43,18 @@ t_position	*m__get_elm_positions(char c)
 	t_position	*positions;
 	t_position	pos;
 	int			i;
-	char		**map;
 	int			amount;
 
 	pos.y = 0;
 	i = 0;
-	map = m()->matrix;
 	amount = m__get_elm_amount(c);
 	positions = ft_palloc((amount + 1) * sizeof(t_position));
-	while (i < amount && map[pos.y])
+	while (i < amount && m()->matrix[pos.y])
 	{
 		pos.x = 0;
-		while (map[pos.y][pos.x])
+		while (m()->matrix[pos.y][pos.x])
 		{
-			if (map[pos.y][pos.x] == c)
+			if (m()->matrix[pos.y][pos.x] == c)
 			{
 				positions[i] = pos;
 				i++;

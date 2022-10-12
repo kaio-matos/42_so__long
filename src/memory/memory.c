@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:06:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/05 05:12:52 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:09:45 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	ft_free_memory(t_memory_node *memory, int memory_nodes)
 	free(memory);
 }
 
-t_memory_node	*ft_push_memory(t_memory_node *memory, t_memory_node payload, int memory_nodes)
+t_memory_node	*ft_push_memory(t_memory_node *memory,
+								t_memory_node payload, int memory_nodes)
 {
 	t_memory_node	*temporary;
 	int				new_space_to_allocate;

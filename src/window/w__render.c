@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:16:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 01:22:29 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/12 02:18:46 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	**game_images(void)
 
 static void	load_images(unsigned int x, unsigned int y, char *character)
 {
-	t_position pos;
-	char	c;
+	t_position	pos;
+	char		c;
 
 	pos.x = x;
 	pos.y = y;
