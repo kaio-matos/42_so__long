@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:16:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/14 05:11:42 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 05:19:07 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	load_images(unsigned int x, unsigned int y, char *character)
 	t_position	pos;
 	char		c;
 
-	pos = new_position(x, y)
+	pos = new_position(x, y);
 	c = *character;
 	if (m__is_ground(c))
 		return (w__put_image(game_images()[0], pos));
