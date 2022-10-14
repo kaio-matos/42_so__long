@@ -6,20 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 02:04:05 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 05:07:46 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-
-t_position	new_position(int x, int y)
-{
-	t_position	pos;
-
-	pos.x = x;
-	pos.y = y;
-	return (pos);
-}
 
 static void	move_player(int x, int y)
 {

@@ -5,13 +5,13 @@ CCF_STRICT = -Wall -Wextra -Werror
 CCF_DEBUG = -Wall -Wextra -Werror -g
 NAME = so_long
 files = main.c\
-	app/so_long.c app/move_player.c\
+	app/so_long.c\
 	mapper/map.c mapper/m__utils.c mapper/m__is_component.c mapper/m__checkers.c mapper/m__check_path.c mapper/m__getters.c mapper/m__setters.c\
 	window/window.c window/w__render.c window/w__utils.c\
 	memory/memory.c memory/memory_utils.c\
 	state/game.c\
-	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c utils/ft_mtxsdup.c utils/ft_exit.c\
-	events/e__key_press.c\
+	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c utils/ft_mtxsdup.c utils/ft_exit.c utils/ft_position.c\
+	events/e__key_press.c events/move_player.c\
 	logger/log.c
 SRCS = $(addprefix src/,$(files))
 OBJS = $(SRCS:.c=.o)
