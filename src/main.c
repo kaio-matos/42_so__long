@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/14 03:51:23 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 04:57:58 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	setup(char **map)
 	t_map	computed_map;
 
 	computed_map = m__init(map);
+	w__init(computed_map.width * PIXELS, computed_map.height * PIXELS);
 	game__init(computed_map);
 }
 
