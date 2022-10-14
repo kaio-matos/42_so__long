@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 02:33:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 03:37:12 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ t_game	*game(void)
 	return (&game_instance);
 }
 
-void	game__init(void)
+void	game__init(t_map map)
 {
-	game()->player = m()->player;
+	game()->player = map.player;
 	game()->collectables = m__get_elm_amount(C_COLLECTABLE);
 	game()->ended = 0;
 	game()->collected = 0;

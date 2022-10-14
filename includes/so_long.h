@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 02:34:27 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 04:02:06 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,10 @@ void		ft_printf_mtx(char **m);
 \******************************************************************************/
 
 t_map		*m(void);
-void		m__init(char **map);
-void		m__check(t_map map);
+t_map		m__init(char **map);
+char		**m__generate_map_from(char *filename);
+void		m__basic_check(char **map);
+void		m__complex_check(t_map map);
 int			m__is_player(char c);
 int			m__is_collectable(char c);
 int			m__is_exit(char c);
@@ -123,7 +125,7 @@ int			m__is_ground(char c);
 int			m__is_wall(char c);
 size_t		m__width(char **matrix);
 size_t		m__height(char **matrix);
-int			m__is_valid_extension(char *file_name);
+int			m__is_valid_extension(char *filename);
 int			m__check_retangular(int width, int height);
 int			m__check_width(char **map, size_t width);
 int			m__check_border_walls(char **map, int width, int height);
@@ -154,7 +156,7 @@ void		*ft_palloc(size_t size);
 \******************************************************************************/
 
 t_game		*game(void);
-void		game__init(void);
+void		game__init(t_map map);
 void		game__set_player(t_position player);
 
 /******************************************************************************\
@@ -163,8 +165,9 @@ void		game__set_player(t_position player);
 
 void		ft_free_matrix(char **matrix);
 char		**ft_psplit(const char *s, char c);
-char		*ft_read_file(int fd);
-char		*ft_pread_file(int fd);
+char		*ft_read_file_fd(int fd);
+char		*ft_read_file(char *filename);
+char		*ft_pread_file(char *filename);
 void		ft_mtxiteri(char **mtx,
 				void (*f) (unsigned int, unsigned int, char *));
 char		**ft_mtxsdup(char **mtx, size_t rows);

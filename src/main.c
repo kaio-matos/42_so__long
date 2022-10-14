@@ -6,13 +6,13 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 02:20:18 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 03:51:23 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	initial_check(int argc, char **argv)
+void	program_basic_check(int argc, char **argv)
 {
 	if (argc <= 1)
 		return (on_error("Please insert more arguments\n"));
@@ -22,27 +22,23 @@ void	initial_check(int argc, char **argv)
 		return (on_error("Please insert a valid map extension\n"));
 }
 
-char	*read_file(char *file_name)
+void	setup(char **map)
 {
-	int		fd;
-	char	*raw_map;
+	t_map	computed_map;
 
-	fd = open(file_name, O_RDONLY);
-	if (fd < 0)
-		on_error("The map file couldn't be opened\n");
-	raw_map = ft_pread_file(fd);
-	close(fd);
-	return (raw_map);
+	computed_map = m__init(map);
+	game__init(computed_map);
 }
 
 int	main(int argc, char **argv)
 {
 	char	**map;
 
-	initial_check(argc, argv);
-	map = ft_psplit(read_file(argv[1]), '\n');
-	m__init(map);
-	m__check(*m());
+	program_basic_check(argc, argv);
+	map = m__generate_map_from(argv[1]);
+	m__basic_check(map);
+	setup(map);
+	m__complex_check(*m());
 	so_long();
 	free_memory();
 	return (0);

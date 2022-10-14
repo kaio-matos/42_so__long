@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 01:33:19 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/04 02:04:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/14 03:59:25 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ size_t	m__height(char **matrix)
 	return (i);
 }
 
-int	m__is_valid_extension(char *file_name)
+int	m__is_valid_extension(char *filename)
 {
-	int		file_name_len;
+	int		filename_len;
 	int		i;
 	int		map_extension_len;
 	char	*map_extension;
 
 	map_extension = "reb.";
 	map_extension_len = ft_strlen(map_extension);
-	file_name_len = ft_strlen(file_name);
-	if (file_name_len <= map_extension_len)
+	filename_len = ft_strlen(filename);
+	if (filename_len <= map_extension_len)
 		return (0);
 	i = 0;
-	while (file_name[(file_name_len - i) - 1] == map_extension[i])
+	while (filename[(filename_len - i) - 1] == map_extension[i])
 		i++;
 	if (i == map_extension_len)
 		return (1);
