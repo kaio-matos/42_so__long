@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/14 04:55:16 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/15 05:17:55 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_game
 	int			collectables;
 	int			collected;
 	int			movements;
-	int			ended;
+	int			can_end;
 }	t_game;
 
 enum		e_memory_actions

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:16:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/14 05:19:07 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/15 05:17:43 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	load_images(unsigned int x, unsigned int y, char *character)
 		return (w__put_image(game_images()[3], pos));
 	if (m__is_exit(c))
 	{
-		if (game()->collected == game()->collectables)
+		if (game()->can_end)
 			return (w__put_image(game_images()[5], pos));
 		return (w__put_image(game_images()[4], pos));
 	}

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/15 02:54:27 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/15 05:20:47 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	game__init(t_map map)
 {
 	game()->player = map.player;
 	game()->collectables = m__get_elm_amount(C_COLLECTABLE);
-	game()->ended = 0;
+	game()->can_end = 0;
 	game()->collected = 0;
 	game()->movements = 0;
 }
@@ -31,7 +31,6 @@ void	game__init(t_map map)
 static void	game__add_movements(void)
 {
 	game()->movements += 1;
-	system("clear");
 	ft_printf("Movements: %i\n", game()->movements);
 }
 
@@ -40,9 +39,10 @@ void	game__set_player(t_position new_position)
 	char	swaping_component;
 
 	swaping_component = m__get_elm(new_position);
-	if (m__is_wall(swaping_component)
-		|| (m__is_exit(swaping_component)
-			&& game()->collected != game()->collectables))
+	if (game()->collected == game()->collectables)
+		game()->can_end = 1;
+	if (m__is_wall(swaping_component) || (m__is_exit(swaping_component)
+			&& !game()->can_end))
 		return ;
 	if (m__is_collectable(swaping_component))
 	{
@@ -51,10 +51,7 @@ void	game__set_player(t_position new_position)
 		game()->collected += 1;
 	}
 	else if (m__is_exit(swaping_component))
-	{
-		game()->ended = 1;
 		ft_exit(0);
-	}
 	else
 		m__swap_char(game()->player, new_position);
 	game__add_movements();
