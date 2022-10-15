@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/15 05:20:47 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/15 05:25:59 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,18 @@ static void	game__add_movements(void)
 	ft_printf("Movements: %i\n", game()->movements);
 }
 
+static void	game__add_colleted(void)
+{
+	game()->collected += 1;
+	if (game()->collected == game()->collectables)
+		game()->can_end = 1;
+}
+
 void	game__set_player(t_position new_position)
 {
 	char	swaping_component;
 
 	swaping_component = m__get_elm(new_position);
-	if (game()->collected == game()->collectables)
-		game()->can_end = 1;
 	if (m__is_wall(swaping_component) || (m__is_exit(swaping_component)
 			&& !game()->can_end))
 		return ;
@@ -48,7 +53,7 @@ void	game__set_player(t_position new_position)
 	{
 		m__set_elm(game()->player, C_GROUND);
 		m__set_elm(new_position, C_PLAYER);
-		game()->collected += 1;
+		game__add_colleted();
 	}
 	else if (m__is_exit(swaping_component))
 		ft_exit(0);
