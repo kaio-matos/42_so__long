@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 01:26:46 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/14 04:03:35 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/15 03:15:15 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_read_file(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return(NULL);
+		return (NULL);
 	file = ft_read_file_fd(fd);
 	close(fd);
 	return (file);
