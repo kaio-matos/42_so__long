@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 00:54:55 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 01:27:27 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "so_long.h"
 
 static int	is_safe(char **map, t_position pos)
 {

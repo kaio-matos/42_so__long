@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 02:51:59 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 01:42:47 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "so_long.h"
 
 void	ft_exit(int status)
 {

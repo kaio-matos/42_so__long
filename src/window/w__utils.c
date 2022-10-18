@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:53:51 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 02:19:01 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "so_long.h"
 
 void	*w__get_image(char *filename)
 {

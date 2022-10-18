@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:48:52 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/12 02:16:44 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "so_long.h"
 
 char	**ft_mtxsdup(char **mtx, size_t rows)
 {
