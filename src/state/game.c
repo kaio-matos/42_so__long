@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:51:06 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ t_game	*game(void)
 void	game__init(t_map map)
 {
 	game()->player = map.player;
-	game()->collectables = m__get_elm_amount(C_COLLECTABLE);
+	game()->collectables = map.collectables_amount;
 	game()->can_end = 0;
-	game()->collected = 0;
 	game()->movements = 0;
 }
 
@@ -34,10 +33,10 @@ static void	game__add_movements(void)
 	ft_printf("Movements: %i\n", game()->movements);
 }
 
-static void	game__add_colleted(void)
+static void	game__collect_collectable(void)
 {
-	game()->collected += 1;
-	if (game()->collected == game()->collectables)
+	game()->collectables -= 1; 
+	if (game()->collectables <= 0)
 		game()->can_end = 1;
 }
 
@@ -53,7 +52,7 @@ void	game__set_player(t_position new_position)
 	{
 		m__set_elm(game()->player, C_GROUND);
 		m__set_elm(new_position, C_PLAYER);
-		game__add_colleted();
+		game__collect_collectable();
 	}
 	else if (m__is_exit(swaping_component))
 		ft_exit(0);

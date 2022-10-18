@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:17:31 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:31:49 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_map
 	char		**matrix;
 	t_position	player;
 	t_position	*collectables;
+	int			collectables_amount;
 }	t_map;
 
 typedef struct s_window
@@ -65,7 +66,6 @@ typedef struct s_game
 {
 	t_position	player;
 	int			collectables;
-	int			collected;
 	int			movements;
 	int			can_end;
 }	t_game;

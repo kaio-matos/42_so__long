@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 03:10:09 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:46:02 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_map	m__init(char **map)
 	m()->height = m__height(m()->matrix);
 	m()->player = m__get_elm_position(C_PLAYER);
 	m()->collectables = m__get_elm_positions(C_COLLECTABLE);
+	m()->collectables_amount = m__get_elm_amount(C_COLLECTABLE);
 	return (*m());
 }
 
