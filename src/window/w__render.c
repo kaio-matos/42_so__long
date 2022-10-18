@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:16:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/15 05:17:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 02:39:42 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,14 @@ static void	load_images(unsigned int x, unsigned int y, char *character)
 
 int	w__render(t_map *map)
 {
+	static unsigned int	timer;
+
+	timer += 1;
+	if (timer <= 120)
+		return (0);
 	if (!w())
 		return (1);
 	ft_mtxiteri(map->matrix, &load_images);
+	timer = 0;
 	return (0);
 }
