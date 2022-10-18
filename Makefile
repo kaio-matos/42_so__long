@@ -1,45 +1,48 @@
-CC = cc
-CCF_INCLUDES = -I ./includes -I ./libft
-MLX_FLAGS = -lmlx  -lXext -lX11 -lm
-CCF_STRICT = -Wall -Wextra -Werror
-CCF_DEBUG = -Wall -Wextra -Werror -g
-NAME = so_long
-files = main.c\
-	app/so_long.c\
-	mapper/map.c mapper/m__utils.c mapper/m__is_component.c mapper/m__checkers.c mapper/m__check_path.c mapper/m__getters.c mapper/m__setters.c\
-	window/window.c window/w__render.c window/w__utils.c\
-	memory/memory.c memory/memory_utils.c\
-	state/game.c\
-	utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c utils/ft_mtxsdup.c utils/ft_exit.c utils/ft_position.c\
-	events/e__key_press.c events/move_player.c\
-	logger/log.c
-SRCS = $(addprefix src/,$(files))
-OBJS = $(SRCS:.c=.o)
-RM = rm -f
+LIBFT_DIR		= libft
+OBJS_DIR		= objects
+
+CC				= cc
+CCF_INCLUDES	= -I ./includes -I $(LIBFT_DIR)
+CCF_STRICT		= -Wall -Wextra -Werror
+CCF_DEBUG		= -Wall -Wextra -Werror -g
+MLX_FLAGS		= -lmlx -lXext -lX11 -lm
+LIBS			= $(LIBFT_DIR)/libft.a $(MLX_FLAGS)
+NAME			= so_long
+FILES			= main.c\
+					app/so_long.c\
+					mapper/map.c mapper/m__utils.c mapper/m__is_component.c mapper/m__checkers.c mapper/m__check_path.c mapper/m__getters.c mapper/m__setters.c\
+					window/window.c window/w__render.c window/w__utils.c\
+					memory/memory.c memory/memory_utils.c\
+					state/game.c\
+					utils/ft_free_matrix.c utils/ft_psplit.c utils/ft_read_file.c utils/ft_mtxiteri.c utils/ft_mtxsdup.c utils/ft_exit.c utils/ft_position.c\
+					events/e__key_press.c events/move_player.c\
+					logger/log.c
+SRCS			= $(addprefix src/,$(FILES))
+OBJS			= $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
+RM				= rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	make all -C ./libft
-	$(CC) $(OBJS) $(MLX_FLAGS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
+$(NAME): $(OBJS) libft
+	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
-%.o : %.c
+$(OBJS_DIR)/%.o : %.c
+	mkdir -p $(dir $@)
 	$(CC) $(CCF_STRICT) $(CCF_INCLUDES) -c $< -o $@
 
-debug:
-	make all -C ./libft
-	$(CC) $(CCF_DEBUG) $(MLX_FLAGS) $(SRCS) ./libft/libft.a $(CCF_INCLUDES) -o $(NAME)
-	chmod 777 $(NAME)
+libft:
+	make all -C $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJS)
+	make fclean -C $(LIBFT_DIR)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re:	fclean all
 
-.PHONY: all debug clean fclean re
+.PHONY: all debug clean libft fclean re
 
 ################################################################################
 # Colors
