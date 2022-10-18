@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/15 05:17:55 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/18 03:17:31 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <mlx.h>
 # define PIXELS 32
+# define WINDOW_X 16777216
 # define KEY_ESC 65307
 # define KEY_W 119
 # define KEY_A 97
