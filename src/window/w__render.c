@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:16:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/19 03:17:11 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,19 @@ static void	load_images(unsigned int x, unsigned int y, char *character)
 	}
 }
 
+static void	load_string(void)
+{
+	char	*movements;
+	char	*string_to_print;
+
+	movements = ft_itoa(game()->movements);
+	string_to_print = ft_strjoin("Movements: ", movements);
+	w__put_string(w()->width / 2 - PIXELS, PIXELS / 2,
+		string_to_print);
+	free(movements);
+	free(string_to_print);
+}
+
 int	w__render(t_map *map)
 {
 	static unsigned int	timer;
@@ -60,6 +73,7 @@ int	w__render(t_map *map)
 	if (!w())
 		return (1);
 	ft_mtxiteri(map->matrix, &load_images);
+	load_string();
 	timer = 0;
 	return (0);
 }

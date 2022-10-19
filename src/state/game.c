@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/19 01:51:06 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/19 03:16:59 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,11 @@ void	game__init(t_map map)
 static void	game__add_movements(void)
 {
 	game()->movements += 1;
-	ft_printf("Movements: %i\n", game()->movements);
 }
 
 static void	game__collect_collectable(void)
 {
-	game()->collectables -= 1; 
+	game()->collectables -= 1;
 	if (game()->collectables <= 0)
 		game()->can_end = 1;
 }
