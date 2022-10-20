@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 00:54:55 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:48:06 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 static int	is_safe(char **map, t_position pos)
 {
-	return (map[pos.y][pos.x] != C_WALL && map[pos.y][pos.x] != '-');
+	char	c;
+
+	c = map[pos.y][pos.x];
+	return (c != C_WALL && c != '-' && c != C_EXIT);
 }
 
 static int	validate_path(char **map, t_position from, t_position to)
