@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:06:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:22:41 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:55:16 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_free_memory(t_memory_node *memory, int memory_nodes)
 {

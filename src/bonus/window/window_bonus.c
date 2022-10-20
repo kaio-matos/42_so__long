@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:33:32 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:22:19 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:55:16 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_window	*w(void)
 {

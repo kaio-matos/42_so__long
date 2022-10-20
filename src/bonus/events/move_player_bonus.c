@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:25:37 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:22:59 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:55:16 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	move_player(int x, int y)
 {

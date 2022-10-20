@@ -5,7 +5,6 @@ MANDATORY_DIR		= mandatory
 BONUS_DIR			= bonus
 
 CC					= cc
-CCF_INCLUDES		= -I ./includes -I $(LIBFT_DIR)
 CCF_STRICT			= -Wall -Wextra -Werror
 CCF_DEBUG			= -Wall -Wextra -Werror -g
 MLX_FLAGS			= -lmlx -lXext -lX11 -lm
@@ -17,6 +16,7 @@ RM					= rm -rf
 # MANDATORY
 ################################################################################
 
+CCF_INCL_MANDATORY	= -I ./$(SRC_DIR)/$(MANDATORY_DIR)/includes -I $(LIBFT_DIR)
 C_FILES_MANDATORY	= main.c\
 						app/so_long.c\
 						mapper/map.c mapper/m__utils.c mapper/m__is_component.c mapper/m__checkers.c mapper/m__check_path.c mapper/m__getters.c mapper/m__setters.c\
@@ -37,12 +37,13 @@ $(NAME): $(OBJS_MANDATORY) libft
 
 $(OBJS_DIR)/$(MANDATORY_DIR)/%.o: $(SRC_DIR)/$(MANDATORY_DIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CCF_STRICT) $(CCF_INCLUDES) -c $< -o $@
+	$(CC) $(CCF_STRICT) $(CCF_INCL_MANDATORY) -c $< -o $@
 
 ################################################################################
 # BONUS
 ################################################################################
 
+CCF_INCL_BONUS		= -I ./$(SRC_DIR)/$(BONUS_DIR)/includes -I $(LIBFT_DIR)
 C_FILES_BONUS		= main_bonus.c\
 						app/so_long_bonus.c\
 						mapper/map_bonus.c mapper/m__utils_bonus.c mapper/m__is_component_bonus.c mapper/m__checkers_bonus.c mapper/m__check_path_bonus.c mapper/m__getters_bonus.c mapper/m__setters_bonus.c\
@@ -62,7 +63,7 @@ bonus: $(OBJS_BONUS) libft
 
 $(OBJS_DIR)/$(BONUS_DIR)/%.o : $(SRC_DIR)/$(BONUS_DIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CCF_STRICT) $(CCF_INCLUDES) -c $< -o $@
+	$(CC) $(CCF_STRICT) $(CCF_INCL_BONUS) -c $< -o $@
 
 ################################################################################
 # LIBFT

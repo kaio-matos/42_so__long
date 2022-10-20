@@ -6,11 +6,11 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 05:52:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:22:46 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:55:16 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	m__set_elm(t_position position, char c)
 {
