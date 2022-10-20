@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 02:53:51 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:22:20 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:38:48 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	w__put_string(int x, int y, char *string)
 {
 	mlx_string_put(w()->init, w()->window,
 		x, y,
-		0x00ff00, string);
+		0xff7700, string);
 }
