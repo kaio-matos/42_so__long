@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 01:26:46 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/22 01:08:54 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_pread_file(char *filename)
 
 	file = ft_read_file(filename);
 	if (!file)
-		on_error("Unable to read the file\n");
+		on_error("Empty file or unable to read the file\n");
 	new_memory(file, VOID);
 	return (file);
 }

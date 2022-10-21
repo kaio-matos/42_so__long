@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:55:16 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/22 01:11:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	program_basic_check(int argc, char **argv)
 {
-	if (argc <= 1)
-		return (on_error("Please insert more arguments\n"));
+	if (argc != 2)
+		return (on_error("Please insert one map\n"));
 	if (!argv[1])
 		return (on_error("Please insert a valid argument\n"));
 	if (!m__is_valid_extension(argv[1]))
