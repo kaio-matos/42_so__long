@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/19 03:15:15 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/22 01:22:46 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,5 @@ void		w__open(void);
 void		*w__get_image(char *filename);
 void		w__put_image(void	*img, t_position position);
 int			w__render(t_map *map);
-void		w__put_string(int x, int y, char *string);
 
 #endif
