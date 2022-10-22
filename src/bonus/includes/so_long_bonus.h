@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:11 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/21 01:53:31 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/22 02:15:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_game
 	t_position	player;
 	int			collectables;
 	int			movements;
+	int			initiated;
 	int			can_end;
 }	t_game;
 
@@ -92,7 +93,7 @@ typedef struct s_memory_node
 * SO_LONG																	   *
 \******************************************************************************/
 
-void		so_long(void);
+void		so_long(t_map *map, t_window *window, t_game *game);
 void		move_player_manager(int pressed_key);
 
 /******************************************************************************\

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:54:53 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/22 01:11:34 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/22 02:14:27 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	m__basic_check(map);
 	setup(map);
 	m__complex_check(*m());
-	so_long();
+	so_long(m(), w(), game());
 	free_memory();
 	return (0);
 }

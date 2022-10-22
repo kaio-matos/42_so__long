@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 01:08:35 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/22 01:21:32 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/22 02:17:33 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	game__init(t_map map)
 	game()->player = map.player;
 	game()->collectables = map.collectables_amount;
 	game()->can_end = 0;
+	game()->initiated = 0;
 	game()->movements = 0;
 }
 
