@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:06:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/10/18 03:00:43 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2022/10/25 03:59:41 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ t_memory_node	*ft_push_memory(t_memory_node *memory,
 	int				old_space_to_allocate;
 
 	temporary = memory;
-	old_space_to_allocate = (memory_nodes - 1) * sizeof(t_memory_node);
-	new_space_to_allocate = memory_nodes * sizeof(t_memory_node);
+	old_space_to_allocate = memory_nodes * sizeof(t_memory_node);
+	new_space_to_allocate = (memory_nodes + 1) * sizeof(t_memory_node);
 	memory = ft_salloc(new_space_to_allocate);
 	if (temporary)
 	{
 		ft_memcpy(memory, temporary, old_space_to_allocate);
 		free(temporary);
 	}
-	memory[memory_nodes - 1] = payload;
+	memory[memory_nodes] = payload;
 	return (memory);
 }
 
@@ -61,7 +61,7 @@ void	memory(enum e_memory_actions action, t_memory_node payload)
 		return ;
 	if (action == PUSH)
 	{
-		memory_nodes++;
 		memory = ft_push_memory(memory, payload, memory_nodes);
+		memory_nodes++;
 	}
 }
