@@ -8,14 +8,15 @@ CC					= cc
 CCF_STRICT			= -Wall -Wextra -Werror
 CCF_DEBUG			= -Wall -Wextra -Werror -g
 MLX_FLAGS			= -lmlx -lXext -lX11 -lm
-LIBS				= $(LIBFT_DIR)/libft.a $(MLX_FLAGS)
-NAME				= so_long
+LIBFT				= $(LIBFT_DIR)/libft.a
+LIBS				= $(LIBFT) $(MLX_FLAGS)
 RM					= rm -rf
 
 ################################################################################
 # MANDATORY
 ################################################################################
 
+NAME				= so_long
 CCF_INCL_MANDATORY	= -I ./$(SRC_DIR)/$(MANDATORY_DIR)/includes -I $(LIBFT_DIR)
 C_FILES_MANDATORY	= main.c\
 						app/so_long.c\
@@ -32,7 +33,7 @@ OBJS_MANDATORY		= $(addprefix $(OBJS_DIR)/,$(FILES_MANDATORY:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJS_MANDATORY) libft
+$(NAME): $(OBJS_MANDATORY) $(LIBFT)
 	$(CC) $(OBJS_MANDATORY) $(LIBS) -o $(NAME)
 
 $(OBJS_DIR)/$(MANDATORY_DIR)/%.o: $(SRC_DIR)/$(MANDATORY_DIR)/%.c
@@ -43,6 +44,7 @@ $(OBJS_DIR)/$(MANDATORY_DIR)/%.o: $(SRC_DIR)/$(MANDATORY_DIR)/%.c
 # BONUS
 ################################################################################
 
+NAME_B				= $(NAME)__bonus
 CCF_INCL_BONUS		= -I ./$(SRC_DIR)/$(BONUS_DIR)/includes -I $(LIBFT_DIR)
 C_FILES_BONUS		= main_bonus.c\
 						app/so_long_bonus.c\
@@ -58,8 +60,10 @@ FILES_BONUS			= $(addprefix $(BONUS_DIR)/,$(C_FILES_BONUS))
 SRCS_BONUS			= $(addprefix src/,$(FILES_BONUS))
 OBJS_BONUS			= $(addprefix $(OBJS_DIR)/,$(FILES_BONUS:.c=.o))
 
-bonus: $(OBJS_BONUS) libft
-	$(CC) $(OBJS_BONUS) $(LIBS) -o $(NAME)
+bonus: $(NAME_B)
+
+$(NAME_B): $(OBJS_BONUS) $(LIBFT)
+	$(CC) $(OBJS_BONUS) $(LIBS) -o $(NAME_B)
 
 $(OBJS_DIR)/$(BONUS_DIR)/%.o : $(SRC_DIR)/$(BONUS_DIR)/%.c
 	mkdir -p $(dir $@)
@@ -69,7 +73,7 @@ $(OBJS_DIR)/$(BONUS_DIR)/%.o : $(SRC_DIR)/$(BONUS_DIR)/%.c
 # LIBFT
 ################################################################################
 
-libft:
+$(LIBFT):
 	make all -C $(LIBFT_DIR)
 
 ################################################################################
@@ -81,6 +85,7 @@ clean:
 	$(RM) $(OBJS_DIR)
 
 fclean: clean
+	$(RM) $(NAME_B)
 	$(RM) $(NAME)
 
 re:	fclean all
