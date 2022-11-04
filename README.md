@@ -15,6 +15,9 @@ The game was developed trying to better structure the steps and separate each mo
 - `game` - Deals with the current game state, they are the variables that change during the game
 - `map` - Deals with the map checking (path and some other validations) and also with the current state of the shown map into the window
 
+- `memory` - In this project I tried to save time throwing all the allocated memory during the execution to an array and freeing it in the exit of the program,
+this is not an ideal thing to do but saves time
+
 ## Result
 <div align="center">
     <img alt="So Long 1" src="./readme/so_long0.png" width="450px" />
@@ -23,9 +26,6 @@ The game was developed trying to better structure the steps and separate each mo
         <img alt="So Long 3" src="./readme/so_long2.png" width="250px" />
     </div>
 </div>
-
-- `memory` - In this project I tried to save time throwing all the allocated memory during the execution to an array and freeing it in the exit of the program,
-this is not an ideal thing to do but saves time
 
 ## Execution
 
