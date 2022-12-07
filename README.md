@@ -29,7 +29,7 @@ this is not an ideal thing to do but saves time
 
 ## Execution
 
-With Make installed just run `make` in the terminal to compile the program, then execute the program using a map as a argument.
+With Make installed just run `make` in the terminal to compile the program, then execute the program using a map as an argument.
 
 ```bash
 make
